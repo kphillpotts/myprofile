@@ -1,0 +1,135 @@
+﻿<div class="table-responsive content">
+    <label class="text-info"><i class="icon-barcode"></i>&nbsp;MANAGE SUPPLIER ITEMS</label>
+    <div class="widget-box row-fluid">
+        <div class="widget-title">
+
+            <h2><i class="icon-list icon-white"></i>Excel Data</h2>
+
+        </div>
+        <textarea class="funkyTextArea" ng-model="excelText" rows="10" placeholder="Paste Excel Data to import"></textarea>
+
+
+        <form class="form-inline" role="form">
+            <div class="pull-right">
+                <label class="form-control">Click Import to process data</label>
+                <button class="btn btn-primary" ng-click="excelToGrid()"><i class="icon-download" />Import </button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <div class="widget-box row-fluid">
+        <div class="widget-title">
+            <h2><i class="icon-play icon-white"></i>Invoke Service</h2>
+        </div>
+        <form class="form-inline pad-top pad-right" role="form">
+            <table class="table table-hover groupBoxTable">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label class="form-control"><i class="icon-user"></i>Web User: </label>
+
+                        </td>
+                        <td>
+                            <input class="form-control input-medium" type="text" ng-model="webUser" placeholder="UserName" />
+                        </td>
+                        <td>
+                            <label class="form-control"><i class="icon-asterisk"></i>Web pwd: </label>
+                        </td>
+                        <td>
+                            <input class="form-control input-medium" type="text" ng-model="webPwd" placeholder="Password" />
+                        </td>
+                        <td>
+                            <button class="btn-primary" ng-click="ManageSupplierItems();"><i class="icon-play" />INVOKE </button>
+                        </td>
+                        <td>
+                            <input class="form-control input-small" type="number" ng-model="loadCount" placeholder="Loop Count" />
+                            <div class="dropdown btn-group">
+                                <a class="btn dropdown-toggle  btn-info" data-toggle="dropdown" href="#"><i class="icon-cog" />Load Test
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu btn-info">
+                                    <li class="btn-info"><button class="btn  btn-info" ng-click="LoadTest(true)"><i class="icon-cog icon-white" />Test Inserts</button></li>
+                                    <li class="btn-info"><button class="btn btn-info" ng-click="LoadTest(false)"><i class="icon-cog icon-white" />Test Updates</button></li>
+                                </ul>
+                            </div>
+                            <!--<button class="btn btn-inverse" ng-click="LoadTest()"><i class="icon-cog icon-white" />Load Testing</button>-->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label><i class="icon-search"></i>Filter       :</label>
+                        </td>
+                        <td>
+                            <input type="text" class="input-medium search-query" ng-model="filteringText" placeholder="Search" />
+                        </td>
+                        <td>
+                            <label><i class="icon-eye-open"></i>Show       :</label>
+                        </td>
+                        <td>
+                            <select ng-model="selectedShowCount" ng-change="selectShowItems()" class="input-medium">
+                                <option value="20" selected="selected">20</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                                <option value="-1">All</option>
+                            </select>
+                        </td>
+                        <td colspan="3">
+                            <button class="btn btn-success" ng-click="open()"><i class="icon-info-sign" />Results </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <div class="margin6 textIndent6">
+                <label class="form-control"><i class="icon-user"></i>Web User: </label>
+                <input class="form-control" type="text" ng-model="webUser" placeholder="UserName" />
+                &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <label class="form-control"><i class="icon-asterisk"></i>Web pwd: </label>
+                <input class="form-control" type="text" ng-model="webPwd" placeholder="Password" />
+                &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;                
+                <button class="btn-primary" ng-click="ManageSupplierItems();"><i class="icon-play" /> INVOKE </button>
+               
+            </div>
+            <div class="margin6 textIndent6">
+                <label><i class="icon-search"></i>Filter       :</label>
+                <input type="text" ng-model="filteringText" placeholder="Search" />
+                &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <label><i class="icon-eye-open"></i>Show       :</label>
+                <select ng-model="selectedShowCount" ng-change="selectShowItems()">
+                    <option value="20" selected="selected">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="-1">All</option>
+                </select>
+                 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-success" ng-click="open()"><i class="icon-info-sign" /> View Results </button>
+                 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-warning" ng-click="LoadTest()"><i class="icon-cog" /> Load Testing</button>
+            </div>-->
+        </form>
+
+        <!--</div>-->
+
+    </div>
+
+    <div>
+        <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3>Service Results</h3>
+        </div>
+        <div class="modal-body">
+            <form class="form-inline" role="form">
+                <textarea class="funkyTextArea form-control" id="disabledInput" type="text" ng-bind="items" rows="50"></textarea>  
+            </form>
+            
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
+        </div>
+        </script>
+    </div>
+
+    <div class="funkyTable" ng-grid="gridOptions"></div>
+</div>

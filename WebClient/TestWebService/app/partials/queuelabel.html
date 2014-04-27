@@ -1,0 +1,58 @@
+﻿<div class="table-responsive content">
+    <label class="text-info"><i class="icon-list"></i>&nbsp;QUEUE LABELS</label>
+
+    <div class="widget-box row-fluid">
+        <div class="widget-title">
+            <h2><i class="icon-list icon-white"></i>Excel Data</h2>
+        </div>
+        <textarea class="funkyTextArea" ng-model="excelText" rows="10" placeholder="Paste Excel Data to import Label Queue"></textarea>
+        <form class="form-inline" role="form">
+            <div class="pull-right">
+                <label class="form-control">Click Import to process data</label>
+                <button class="btn btn-primary" ng-click="excelToGrid()"><i class="icon-download" />Import </button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <div class="widget-box row-fluid">
+        <div class="widget-title">
+            <h2><i class="icon-play icon-white"></i>Invoke Service</h2>
+        </div>
+        <form class="form-inline pad-top pad-right" role="form">
+
+            <div class="margin6 textIndent6">
+                <label class="form-control"><i class="icon-user"></i>Web User: </label>
+                <input class="form-control" type="text" ng-model="webUser" placeholder="UserName" />
+                &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <label class="form-control"><i class="icon-asterisk"></i>Web pwd: </label>
+                <input class="form-control" type="text" ng-model="webPwd" placeholder="Password" />
+                &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <!--<label><i class="icon-ok-sign"></i>Consume Service : </label>-->
+                <button class="btn-primary" ng-click="ManageLabelQueue();"><i class="icon-play" />INVOKE </button>
+                &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-success" ng-click="open()"><i class="icon-info-sign" />View Results </button>
+            </div>
+        </form>
+    </div>
+    <div>
+        <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3>Service Results</h3>
+        </div>
+        <div class="modal-body">
+            <form class="form-inline" role="form">
+                <textarea class="funkyTextArea form-control" id="disabledInput" type="text" ng-bind="items" rows="50"></textarea>  
+            </form>
+            
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
+        </div>
+        </script>
+    </div>
+
+    <div class="funkyTable" ng-grid="gridLabels"></div>
+</div>

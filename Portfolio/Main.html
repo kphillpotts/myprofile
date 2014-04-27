@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html ng-app="PortFolioApp" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <title>Vinod's Profile</title>
+   
+
+    <link href="stylesheets/application.css" rel="stylesheet" />
+    <script src="javascripts/application.js"></script>
+
+
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body id="body">
+    <div class="row">
+        <div class="span12">
+
+            <div class="top">
+                <div class="caption">Change the background:</div>
+                <div class="buttons">
+                    <div class="btn-group" data-toggle="buttons-radio">
+                        <button id="cardboard" type="button" class="btn btn-mini active">1</button>
+                        <button id="green_dust_scratch" type="button" class="btn btn-mini">2</button>
+                        <button id="grid" type="button" class="btn btn-mini">3</button>
+                        <button id="retina_wood" type="button" class="btn btn-mini">4</button>
+                        <button id="solid" type="button" class="btn btn-mini">5</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="main">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+
+                    <div class="header">
+                        <div class="header-left">
+                            <div class="avatar">
+                                <img src="images/avatar.png" />
+                            </div>
+                        </div>
+
+                        <div class="header-right">
+                            <div class="name">Vinod Srinivasan</div>
+                            <div class="location">
+                                <a href="https://www.google.com.au/maps/place/Melbourne+VIC"><i class="icon-map-marker"></i> Melbourne, Australia</a>
+                            </div>
+                            <div class="website">
+                                <a href="#"><i class="icon-globe"></i> visit website</a>
+                            </div>
+                            <div class="email">
+                                <a href="mailto:itsmevinod@yahoo.com"><i class="icon-envelope"></i> itsmevinod@yahoo.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row center">
+                <div class="span12" ng-view="">
+                   
+                </div>
+            </div>
+
+            <!--<div class="row">
+                <div class="span12">
+                    <div class="info-container">
+                        <div class="row-fluid">
+                            <div class="span4">
+
+                                <div class="box info-box">
+                                    <div class="title"><i class="icon-user"></i> About me</div>
+                                    <ul class="about">
+                                        <li>Web Designer</li>
+                                        <li>Web Developer</li>
+                                        <li>Traveller</li>
+                                        <li>Passionate Reader</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="span4">
+                                <div class="box info-box">
+                                    <div class="title"><i class="icon-tasks"></i> My skills</div>
+                                    <ul class="skills">
+                                        <li>HTML5 + CSS3</li>
+                                        <li>JavaScript/jQuery</li>
+                                        <li>Adobe Photoshop</li>
+                                        <li>Adobe Illustrator</li>
+                                        <li>Adobe InDesign</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="span4">
+                                <div class="box info-box">
+                                    <div class="title"><i class="icon-envelope-alt"></i> Contact</div>
+                                    <ul class="skills">
+                                        <li>email@website.com</li>
+                                        <li>Facebook: fbusername</li>
+                                        <li>Twitter: twusername</li>
+                                        <li>Github: ghusername</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+            <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.js"></script>
+            <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.js"></script>
+
+            <!-- My AngularJS arch files -->
+            <script src="app/app.js"></script>
+            <script src="app/controllers/controller.js"></script>
+            <script src="app/directives/directives.js"></script>
+
+        </div>
+    </section>
+    
+</body>
+</html>

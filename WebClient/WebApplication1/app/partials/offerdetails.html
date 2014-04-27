@@ -1,0 +1,175 @@
+﻿<div class="table-responsive content">
+    <!--<a class="brand span11"><span><i class="icon-tag icon-white"></i> LINKED PRODUCTS</span></a>-->
+    <label class="text-info"><i class="icon-tag"></i>&nbsp;OFFER DETAILS</label>
+
+    <div class="widget-box row-fluid">
+        <div class="widget-title">
+            <h2><i class="icon-play icon-white"></i>Invoke Service</h2>
+        </div>
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <td>
+                        <label class="form-control"><i class="icon-user"></i>Web User: </label>
+
+                    </td>
+                    <td>
+                        <input class="form-control input-medium" type="text" ng-model="webUser" placeholder="UserName" />
+                    </td>
+                    <td>
+                        <label class="form-control"><i class="icon-asterisk"></i>Web pwd: </label>
+                    </td>
+                    <td>
+                        <input class="form-control input-medium" type="text" ng-model="webPwd" placeholder="Password" />
+                    </td>
+                    <td>
+                        <button class="btn-primary" ng-click="PopulateInput();"><i class="icon-play" />INVOKE </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label><i class="icon-search"></i>Filter       :</label>
+                    </td>
+                    <td>
+                         <input type="text" class="input-medium search-query" ng-model="query" ng-change="ApplyFilter();" placeholder="Search" />
+                    </td>
+                    <td>
+                        <label><i class="icon-eye-open"></i>Show       :</label>
+                    </td>
+                    <td>
+                        <select ng-model="selectedShowCount" ng-change="selectShowItems()" class="input-medium">
+                            <option value="20" selected="selected">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="-1">All</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button class="btn btn-success" ng-click="open()"><i class="icon-info-sign" />Results </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label><i class="icon-search"></i>Offer Codes:</label>
+                    </td>
+                    <td colspan="4">
+                        <input type="text" class="input-block-level" ng-model="offerCodes" placeholder="Enter Offer Codes (Comma seperated)..." />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="funkyTable" ng-grid="gridOffers"></div>
+    <!--  <div class="margin6 textIndent6">
+              <label class="form-control"><i class="icon-user"></i>Web User     :</label>
+              <input class="form-control" type="text" ng-model="webUser" placeholder="UserName" />
+              &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+              <label class="form-control"><i class="icon-asterisk"></i>Web pwd      :</label>
+              <input class="form-control" type="text" ng-model="webPwd" placeholder="Password" />
+              &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                
+              <button class="btn-primary" ng-click="PopulateInput();"><i class="icon-play" />INVOKE </button>
+
+
+          </div>
+        <div class="margin6 textIndent6">
+            <label><i class="icon-search"></i>Filter       :</label>
+            <input type="text" ng-model="query" placeholder="Search" />
+            &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+            <label><i class="icon-eye-open"></i>Show       :</label>
+            <select ng-model="selectedShowCount" ng-change="selectShowItems()">
+                <option value="20" selected="selected">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="-1">All</option>
+            </select>
+        </div>
+    </div>
+    </div>-->
+
+    <!--   <table class="table table-hover table-striped table-condensed table-bordered funkyTable">
+               <thead>
+                   <tr>
+                       <th colspan="2">Campaign Name</th>
+                       <th colspan="2">Offer Code</th>
+                       <th colspan="2">Barcode</th>
+                       <th colspan="2">Product Name</th>
+                       <th colspan="2">Offer Price</th>
+                       <th colspan="2">Retail Price</th>
+                       <th colspan="2">Qty Available</th>
+                       <th colspan="2">Qty On Order</th>
+                       <th colspan="2">Discontinued</th>
+                       <th colspan="2">Last Sold</th>
+                       <th colspan="2">Created</th>
+                       <th colspan="2">Brand</th>
+                       <th colspan="2">Name</th>
+                       <th colspan="2">Size</th>
+
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr data-ng-hide="productIDs.length > 0" class="error">
+                       <td colspan="30">
+                           <div class="text-center"><i>{{gridMessage}}</i></div>
+                       </td>
+                   </tr>
+                   <tr class="contentRow" data-ng-repeat="id in pagedItems[currentPage] | filter: query">
+                       <td>{{itemsPerPage*currentPage + ($index + 1)}}
+                       </td>
+                       <td colspan="2">
+                           <label>{{id}}</label>
+                       </td>
+                   </tr>
+                   <tr>
+                       <td colspan="1">Total: {{productIDs.length}}</td>
+                       <td colspan="6">
+                           <div class="pagination pull-right">
+                               <ul>
+                                   <li ng-class="{disabled: currentPage == 0}">
+                                       <a href ng-click="prevPage()">« Prev</a>
+                                   </li>
+                                   <li ng-repeat="n in range(pagedItems.length)"
+                                       ng-class="{active: n == currentPage}"
+                                       ng-click="setPage()">
+                                       <a href ng-bind="n + 1">1</a>
+                                   </li>
+                                   <li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                                       <a href ng-click="nextPage()">Next »</a>
+                                   </li>
+                               </ul>
+                           </div>
+                       </td>
+                   </tr>
+               </tbody>
+               <tfoot>
+                   <tr class="info lastRow">
+                       <td colspan="2">Time Taken for this Call : {{timetaken}} seconds</td>
+                       <td class="text-right">
+                           <button class="btn-danger" ng-click="ClearData()"><i class="icon-remove-circle" />RESET</button>
+                           &nbsp;&nbsp;
+                           <button class="btn-primary" ng-click="CopyData();"><i class="icon-import" />COPY DATA</button>
+                       </td>
+                   </tr>
+
+               </tfoot>
+           </table>-->
+     
+</div>
+<div>
+        <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3>Service Results</h3>
+        </div>
+        <div class="modal-body">
+            <form class="form-inline" role="form">
+                <textarea class="funkyTextArea form-control" id="disabledInput" type="text" ng-bind="items" rows="50"></textarea>  
+            </form>
+            
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
+        </div>
+        </script>
+    </div>
+

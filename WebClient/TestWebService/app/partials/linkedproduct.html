@@ -1,0 +1,108 @@
+﻿<div class="table-responsive content">
+    <!--<a class="brand span11"><span><i class="icon-tag icon-white"></i> LINKED PRODUCTS</span></a>-->
+    <label class="text-info"><i class="icon-tag"></i>&nbsp;LINKED PRODUCTS</label>
+
+    <div class="widget-box row-fluid">
+        <div class="widget-title">
+            <h2><i class="icon-play icon-white"></i>Invoke Service</h2>
+        </div>
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <td>
+                        <label class="form-control"><i class="icon-user"></i>Web User: </label>
+
+                    </td>
+                    <td>
+                        <input class="form-control input-medium" type="text" ng-model="webUser" placeholder="UserName" />
+                    </td>
+                    <td>
+                        <label class="form-control"><i class="icon-asterisk"></i>Web pwd: </label>
+                    </td>
+                    <td>
+                        <input class="form-control input-medium" type="text" ng-model="webPwd" placeholder="Password" />
+                    </td>
+                    <td>
+                        <button class="btn-primary" ng-click="PopulateInput();"><i class="icon-play" />INVOKE </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label><i class="icon-search"></i>Filter       :</label>
+                    </td>
+                    <td>
+                        <input type="text" class="input-medium search-query" ng-model="query" placeholder="Search" />
+                    </td>
+                    <td>
+                        <label><i class="icon-eye-open"></i>Show       :</label>
+                    </td>
+                    <td>
+                        <select ng-model="selectedShowCount" ng-change="selectShowItems()" class="input-medium">
+                            <option value="20" selected="selected">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="-1">All</option>
+                        </select>
+                    </td>
+                    <td colspan="3">
+                        <button class="btn btn-success" ng-click="open()"><i class="icon-info-sign" />Results </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <table class="table table-hover table-striped table-condensed table-bordered funkyTable">
+        <thead>
+            <tr>
+                <th class="index" data-ng-click="setOrder('name')">Index</th>
+                <th colspan="2">Product HeadOffice HQID</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-hide="productIDs.length > 0" class="error">
+                <td colspan="3">
+                    <div class="text-center"><i>{{gridMessage}}</i></div>
+                </td>
+            </tr>
+            <tr class="contentRow" data-ng-repeat="id in pagedItems[currentPage] | filter: query">
+                <td>{{itemsPerPage*currentPage + ($index + 1)}}
+                </td>
+                <td colspan="2">
+                    <label>{{id}}</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1">Total: {{productIDs.length}}</td>
+                <td colspan="6">
+                    <div class="pagination pull-right">
+                        <ul>
+                            <li ng-class="{disabled: currentPage == 0}">
+                                <a href ng-click="prevPage()">« Prev</a>
+                            </li>
+                            <li ng-repeat="n in range(pagedItems.length)"
+                                ng-class="{active: n == currentPage}"
+                                ng-click="setPage()">
+                                <a href ng-bind="n + 1">1</a>
+                            </li>
+                            <li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                                <a href ng-click="nextPage()">Next »</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="info lastRow">
+                <td colspan="2">Time Taken for this Call : {{timetaken}} seconds</td>
+                <td class="text-right">
+                    <button class="btn-danger" ng-click="ClearData()"><i class="icon-remove-circle" />RESET</button>
+                    &nbsp;&nbsp;
+                            <button class="btn-primary" ng-click="CopyData();"><i class="icon-import" />COPY DATA</button>
+                </td>
+            </tr>
+
+        </tfoot>
+    </table>
+</div>

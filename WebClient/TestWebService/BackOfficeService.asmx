@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="BackOfficeService.asmx.cs" Class="BackOfficeService.BackOfficeService" %>

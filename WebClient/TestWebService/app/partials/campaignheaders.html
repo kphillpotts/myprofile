@@ -1,0 +1,73 @@
+﻿<div class="table-responsive content">
+    <!--<a class="brand span11"><span><i class="icon-tag icon-white"></i> LINKED PRODUCTS</span></a>-->
+    <label class="text-info"><i class="icon-tag"></i>&nbsp;CAMPAIGN HEADER DETAILS</label>
+
+    <div class="widget-box row-fluid">
+        <div class="widget-title">
+            <h2><i class="icon-play icon-white"></i>Invoke Service</h2>
+        </div>
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <td>
+                        <label class="form-control"><i class="icon-user"></i>Web User: </label>
+
+                    </td>
+                    <td>
+                        <input class="form-control input-medium" type="text" ng-model="webUser" placeholder="UserName" />
+                    </td>
+                    <td>
+                        <label class="form-control"><i class="icon-asterisk"></i>Web pwd: </label>
+                    </td>
+                    <td>
+                        <input class="form-control input-medium" type="text" ng-model="webPwd" placeholder="Password" />
+                    </td>
+                    <td>
+                        <button class="btn-primary" ng-click="PopulateInput();"><i class="icon-play" />INVOKE </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label><i class="icon-search"></i>Filter       :</label>
+                    </td>
+                    <td>
+                         <input type="text" class="input-medium search-query" ng-model="query" ng-change="ApplyFilter();" placeholder="Search" />
+                    </td>
+                    <td>
+                        <label><i class="icon-eye-open"></i>Show       :</label>
+                    </td>
+                    <td>
+                        <select ng-model="selectedShowCount" ng-change="selectShowItems()" class="input-medium">
+                            <option value="20" selected="selected">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="-1">All</option>
+                        </select>
+                    </td>
+                    <td colspan="3">
+                        <button class="btn btn-success" ng-click="open()"><i class="icon-info-sign" />Results </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="funkyTable" ng-grid="gridCampaigns"></div>
+     
+</div>
+<div>
+        <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3>Service Results</h3>
+        </div>
+        <div class="modal-body">
+            <form class="form-inline" role="form">
+                <textarea class="funkyTextArea form-control" id="disabledInput" type="text" ng-bind="items" rows="50"></textarea>  
+            </form>
+            
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
+        </div>
+        </script>
+    </div>

@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html ng-app="WebClientApp" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Back Office Web Client</title>
+    <link href="content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="content/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="content/css/style.css" rel="stylesheet" />
+    <link href="content/css/ng-grid.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="wrap">
+        <!-- start: Header -->
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <!--<a id="main-menu-toggle" class="hidden-phone open"><i class="icon-reorder"></i></a>-->
+                    <div class="row-fluid">
+                        <a class="brand span2" href="#/"><span>BACK OFFICE</span></a>
+                        <a class=" brand noBg span10"><span> Web Client v.3.0</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- start: Header -->
+
+        <div class="container-fluid-full">
+            <div class="row-fluid">
+
+                <!-- start: Main Menu -->
+                <div id="sidebar-left" class="span2">
+                    <div class="row-fluid actions">
+                        <input type="text" class="search span12" placeholder="..." />
+                    </div>
+
+                    <div class="nav-collapse sidebar-nav">
+                        <ul class="nav nav-tabs nav-stacked main-menu">
+                            <li><a href="#/linkedproduct"><i class="icon-tag icon-white"></i><span class="hidden-tablet">Linked Products</span></a></li>
+                            <li><a href="#/linkedsupplier"><i class="icon-tag icon-white"></i><span class="hidden-tablet">Linked Suppliers</span></a></li>
+                            <li><a href="#/managedepartments"><i class="icon-folder-open icon-white"></i><span class="hidden-tablet">Manage Department</span></a></li>
+                            <li><a href="#/managecategories"><i class="icon-folder-open icon-white"></i><span class="hidden-tablet">Manage Category</span></a></li>
+                            <li><a href="#/manageproducts"><i class="icon-qrcode icon-white"></i><span class="hidden-tablet">Manage Products</span></a></li>
+                            <li><a href="#/managesupplieritems"><i class="icon-barcode icon-white"></i><span class="hidden-tablet">Manage Supplier Items</span></a></li>
+                          
+                             <li><a href="#/getpricing"><i class="icon-repeat icon-white"></i><span class="hidden-tablet">Get Product Pricing</span></a></li>
+                            <li><a href="#/setpricing"><i class="icon-upload icon-white"></i><span class="hidden-tablet">Set Product Pricing</span></a></li>
+                            <li><a href="#/queuelabel"><i class="icon-list icon-white"></i><span class="hidden-tablet">Queue Labels</span></a></li>
+                            <li><a href="#/campaignheaders"><i class="icon-gift icon-white"></i><span class="hidden-tablet">Get Campaigns & Offers</span></a></li>
+                            <li><a href="#/offerdetails"><i class="icon-gift icon-white"></i><span class="hidden-tablet">Get Offer Details</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- end: Main Menu -->
+
+                <div id="content" class="content span10" ng-view=""></div>
+
+            </div>
+            <!--/fluid-row-->
+           
+
+        </div>
+         <footer>
+                <p>
+                    <span style="text-align: left; float: left">&copy; 2013 <a href="" alt="Bootstrap Themes">Dev Rocks!</a></span>
+                    <span class="hidden-phone" style="text-align: center; float: right"><i>Trust the Developer</i></span>
+                </p>
+
+            </footer>
+        <!-- required libraries -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.js"></script>
+        <script src="content/js/bootstrap.min.js"></script>
+        <script src="//mgcrea.github.com/angular-strap/js/angular-strap.js"></script>
+        <script src="content/js/ui-bootstrap-0.6.0.min.js"></script>
+        <script src="content/js/ui-bootstrap-tpls-0.6.0.min.js"></script>
+        <script src="content/js/nggrid.min.js"></script>
+
+        <!-- My AngularJS arch files -->
+        <script src="app/app.js"></script>
+        <script src="app/controllers/controller.js"></script>
+        <script src="app/services/service.js"></script>
+        <script src="app/CSVParser.js" type="text/javascript" charset="utf-8"></script>
+    </div>
+</body>
+</html>
