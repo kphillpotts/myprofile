@@ -36,7 +36,7 @@
       {
           id: 4,
           name: 'Tasty Foods',
-          url: 'http://myprofile.azurewebsites.net/ComingSoon.html?siteName=Tasty_Foods',
+          url: 'http://tastyfoods.azurewebsites.net',
           thumbnail: 'images/projects/previews/tastyfoods.png',
           image: 'images/projects/details/tastyfoods.png',
           description: 'blah...blah...blah.... Tasty foods',

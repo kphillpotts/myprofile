@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="@ViewBag.Description" />
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    @if (ViewBag.CanonicalUrl != "")
+    {
+        <link rel="canonical" href="@ViewBag.CanonicalUrl"/>
+    }
+    <meta name="author" content="Tasty Foods" />
+    @if (ViewBag.IsNoIndexNoFollow != null)
+    {
+        <meta name="robots" content="noindex,nofollow" />
+    }
+    else
+    {
+        <meta name="robots" content="index,follow" />
+    }
+
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="~/r/style/bootstrap.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="~/r/style/responsive.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="~/r/style/style.css" type="text/css" media="screen" />
+
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css' />
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+    @RenderSection("head", required: false)
+
+    <script type="text/javascript" src="~/r/script/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="~/r/script/superfish.js"></script>
+    <script type="text/javascript" src="~/r/script/jquery.mobilemenu.js"></script>
+    <script type="text/javascript" src="~/r/script/jquery.equalheights.js"></script>
+    <script type="text/javascript" src="~/r/script/jquery.ui.totop.js"></script>
+
+    <script>
+        $(window).load(function () {
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        })
+    </script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-43122047-1', 'TastyFoods.com.au');
+        ga('send', 'pageview');
+
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="span12 clearfix">
+                    <h1 class="brand">
+                        <a href="@TastyFoods.SEO.Home_Index_Url()">Tasty Foods</a><a href="@TastyFoods.SEO.Home_Index_Url()">TRADITIONAL SRI LANKAN &amp; INDIAN CUISINE</a>
+                    </h1>
+                    <div class="navbar navbar_ clearfix">
+                        <div class="navbar-inner">
+                            <div class="nav-collapse nav-collapse_ collapse">
+                                <ul class="nav sf-menu clearfix">
+                                    @if (ViewBag.CanonicalUrl == TastyFoods.SEO.Home_Index_Canonical())
+                                    {
+                                        <li class="active"><a href="@TastyFoods.SEO.Home_Index_Url()">Home</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@TastyFoods.SEO.Home_Index_Url()">Home</a></li>
+                                    }
+                                    @if (ViewBag.CanonicalUrl == TastyFoods.SEO.Home_About_Canonical())
+                                    {
+                                        <li class="active"><a href="@TastyFoods.SEO.Home_About_Url()">About Us</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@TastyFoods.SEO.Home_About_Url()">About Us</a></li>
+                                    }
+                                    @{
+                                        string stringClass = "sub-menu";
+                                    }
+                                    @if (ViewBag.CanonicalUrl == TastyFoods.SEO.Menu_Index_Url())
+                                    {
+                                        stringClass = "sub-menu active";
+                                    }
+                                    <li class="@stringClass"><a href="@TastyFoods.SEO.Menu_Index_Url()">Menu</a>
+                                        <ul>
+                                            <li><a href="@TastyFoods.SEO.Menu_Chefs_Special_Url()">Chef's Special</a></li>
+                                            <li><a href="@TastyFoods.SEO.Menu_Regular_Dishes_Url()">Main Dishes</a></li>
+                                            <li class="sub-menu"><a href="@TastyFoods.SEO.Menu_Curry_Dishes_Url()">Curry Dishes</a>
+                                                <ul>
+                                                    <li><a href="@TastyFoods.SEO.Menu_Curry_Dishes_Url()-fish-curry">Fish Curry</a></li>
+                                                    <li><a href="@TastyFoods.SEO.Menu_Curry_Dishes_Url()-mutton-curry">Mutton Curry</a></li>
+                                                    <li><a href="@TastyFoods.SEO.Menu_Curry_Dishes_Url()-beef-curry">Beef Curry</a></li>
+                                                    <li><a href="@TastyFoods.SEO.Menu_Curry_Dishes_Url()-crab-curry">Crab Curry</a></li>
+                                                    <li><a href="@TastyFoods.SEO.Menu_Curry_Dishes_Url()-squid-curry">Squid Curry</a></li>
+                                                    <li><a href="@TastyFoods.SEO.Menu_Curry_Dishes_Url()-egg-curry">Egg Curry</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="sub-menu"><a href="@TastyFoods.SEO.Menu_Vegetarian_Dishes_Url()">Vegetarian</a>
+                                                <ul>
+                                                    <li><a href="@TastyFoods.SEO.Menu_Vegetarian_Dishes_Url()-eggplant-curry">Eggplant</a></li>
+                                                    <li><a href="@TastyFoods.SEO.Menu_Vegetarian_Dishes_Url()-dhal-curry">Dhal</a></li>
+                                                    <li><a href="@TastyFoods.SEO.Menu_Vegetarian_Dishes_Url()-beans-curry">Beans</a></li>
+                                                    <li><a href="@TastyFoods.SEO.Menu_Vegetarian_Dishes_Url()-spinach-curry">Spinach</a></li>
+                                                    <li><a href="@TastyFoods.SEO.Menu_Vegetarian_Dishes_Url()-pumpkin-curry">Pumpkin</a></li>
+                                                    <li><a href="@TastyFoods.SEO.Menu_Vegetarian_Dishes_Url()-potato-curry">Potato</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Catering</a></li>
+                                            <li><a href="#">Special Offers</a></li>
+                                        </ul>
+                                    </li>
+                                    @if (ViewBag.CanonicalUrl == TastyFoods.SEO.Home_Gallery_Url())
+                                    {
+                                        <li class="active"><a href="@TastyFoods.SEO.Home_Gallery_Url()">Gallery</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@TastyFoods.SEO.Home_Gallery_Url()">Gallery</a></li>
+                                    }
+                                    @if (ViewBag.CanonicalUrl == TastyFoods.SEO.Home_Contact_Url())
+                                    {
+                                        <li class="active"><a href="@TastyFoods.SEO.Home_Contact_Url()">Contacts</a></li>
+                                    }
+                                    else
+                                    {
+                                    <li><a href="@TastyFoods.SEO.Home_Contact_Url()">Contacts</a></li>
+                                    }
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="float2 span6">
+                    <span>reservation &amp; orders</span>
+                    <strong>P: 03 9000 9000, &nbsp; M: 04xx xxx xxx</strong>
+                </div>
+                <div class="float span6">
+                    <span><em>&copy; @DateTime.Now.Year<a href="@TastyFoods.SEO.Home_Index_Canonical()"><span class="brand">Tasty Foods</span></a></em></span><br />
+                    <span><em>Melbourne CBD<br />123 Flinders Street<br />Melbourne, VIC 3000</em></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="~/r/script/bootstrap.js"></script>
+</body>
+</html>

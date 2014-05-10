@@ -1,0 +1,142 @@
+﻿@section head {
+    <link rel="stylesheet" href="~/r/style/camera.css" type="text/css" media="screen">
+    <script type="text/javascript" src="~/r/script/camera.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            jQuery('.camera_wrap').camera();
+        });
+    </script>
+}
+
+<div class="header-block">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="slider">
+                    <div class="camera_wrap">
+                        <div data-src="r/menu/home-style-vegetable-biryani-in-a-clay-handi-pot-01-slide.jpg"></div>
+                        <div data-src="r/menu/home-style-traditional-spicy-chicken-biryani-01-slide.jpg"></div>
+                        <div data-src="r/menu/home-style-tandoori-prawns-with-basmati-rice-01-slide.jpg"></div>
+                        <div data-src="r/menu/home-style-stirred-fried-crab-curry-with-garlic-and-pepper-01-slide.jpg"></div>
+                        <div data-src="r/menu/home-style-sambar-vada-and-idli-indian-dish-01-slide.jpg"></div>
+                        <div data-src="r/menu/home-style-sambar-traditional-indian-food-01-slide.jpg"></div>
+                        <div data-src="r/menu/home-style-sambar-dosa-on-banana-leaf-with-spicy-ingredients-a-south-indian-dish-01-slide.jpg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="span9">
+                <div class="row">
+                    <div class="span3">
+                        <div class="box-1 maxheight">
+                            <div class="title">
+                                Good<br>
+                                rest
+                            </div>
+                            <div class="caption clearfix">
+                                <figure class="img-polaroid">
+                                    <img src="~/r/website/beautiful-indian-woman-thumbs-up-happy-smiling-01-w214.jpg" alt="Beautiful Indian woman with thumbs up and happy smiling" />
+                                </figure>
+                                <div>We assure you that you will definitely feel at home once you take a seat at our restaurant with wide range of menu and services to sit back and enjoy.</div>
+                                <a href="@TastyFoods.SEO.Home_About_Canonical()" class="btn-more"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span3">
+                        <div class="box-1 maxheight">
+                            <div class="title">
+                                Better<br>
+                                service
+                            </div>
+                            <div class="caption clearfix">
+                                <figure class="img-polaroid">
+                                    <img src="~/r/menu/home-style-sri-lankan-and-indian-gulab-jamun-dessert-01-w214.jpg" alt="Home style Sri Lankan and Indian Gulab Jaman dessert at Tasty FoodsBest Food restaurant in Melbourne" />
+                                </figure>
+                                <div>We serve with love and are committed to providing you the best hospitality service when you dine-in or take-away our home-style food.</div>
+                                <a href="@TastyFoods.SEO.Menu_Index_Canonical()" class="btn-more"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span3">
+                        <div class="box-1 maxheight">
+                            <div class="title">
+                                Best<br>
+                                cooks
+                            </div>
+                            <div class="caption clearfix">
+                                <figure class="img-polaroid">
+                                    <img src="~/r/menu/home-style-traditional-indian-mutton-korma-01-w214.jpg" alt="Home style traditional Indian Mutton Korma at Tasty FoodsBest Food restaurant in Melbourne" />
+                                </figure>
+                                <div>Our chefs are known to cook traditional authentic Sri Lankan and Indian meals with home-style touch and flavours you might have missed back in home town.</div>
+                                <a href="@TastyFoods.SEO.Home_Gallery_Canonical()" class="btn-more"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="span3 center">
+                <h3 class="indent-1">opening<br>
+                    hours</h3>
+                <ul class="list-hours">
+                    <li><strong>OPEN 7 DAYS</strong><span>10 am - 9 pm</span></li>
+                    <li><strong>LUNCH</strong><span>12 pm - 3 pm</span></li>
+                    <li><strong>DINNER</strong><span>6 pm - 9 pm</span></li>
+                </ul>
+                <a href="#" class="btn">book a table!</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span9 block-1">
+                <figure class="img-polaroid">
+                    <img src="~/r/menu/home-style-sri-lankan-indian-spicy-chicken-tandoori-01-w254.jpg" alt="Home style Sri Lankan, Indian spicy chicken Tandoori at Tasty FoodsBest Food restaurant in Melbourne">
+                </figure>
+                <div>
+                    <h4>At once you will notice that we were waiting for you!</h4>
+                    <p class="lead">You will be surprised with our special menu</p>
+                    <p>Our chefs at Tasty FoodsRestaurant like to surprise our hungry little friends by changing our daily special menu from top to bottom, to give a broader choice of traditional authentic delicious Sri Lankan and Indian cuisine.</p>
+                    @{
+                        DateTime dateTime = DateTime.UtcNow.AddHours(10);
+                        dateTime = dateTime.AddDays(7);
+                        string stringDay = dateTime.DayOfWeek.ToString();
+                        string stringDays = stringDay + "s";
+
+                        if (stringDay == "Monday" || stringDay == "Tuesday" || stringDay == "Wednesday" || stringDay == "Thursday")
+                        {
+                        <p class="lead">@stringDay is the new Friday</p>
+                        <p>It's about having that feeling you have on Fridays, you know, when you are excited to get out of work because it's <b>the weekend</b>, it's about having that feeling on @stringDays.</p>
+                        }
+                        else if (stringDay == "Friday" || stringDay == "Saturday" || stringDay == "Sunday")
+                        {
+                        }
+                    }
+
+                </div>
+            </div>
+            <div class="span3">
+                <div class="box-2 center">
+                    <div class="title-2">testimonials</div>
+                    <div class="caption">
+                        <blockquote>
+                            “ On my daughter's birthday party at Tasty Foods, the taste and flavour reminded me of my mother's dishes back home.”
+                            <br />
+                            Ms. Olivia R.
+                        </blockquote>
+                        <a href="#" class="btn btn-1">more testimonials</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12 block-1">
+            </div>
+        </div>
+    </div>
+</div>
