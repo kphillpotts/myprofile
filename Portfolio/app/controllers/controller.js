@@ -6,8 +6,8 @@
           url: 'http://thecubby.azurewebsites.net',
           thumbnail: 'images/projects/previews/thecubby.png',
           image:'images/projects/details/thecubby.png',
-          description: 'blah...blah...blah.... The cubby',
-          technology: 'a,b,c',
+          description: 'The cubby is a very casual web site built for a Cafe style business.',
+          technology: 'ASP.Net MVC 5, Custom CMS technique',
           views: 56,
           likes: 24
       },
@@ -17,8 +17,9 @@
           url: 'http://vsbackoffice.azurewebsites.net',
           thumbnail: 'images/projects/previews/webclient.png',
           image: 'images/projects/details/webclient.png',
-          description: 'blah...blah...blah....the web client',
-          technology: 'a,b,c',
+          description: 'If you are running your business and would like to manage the business entities the back office client is a perfect app for you.' +
+              'Allows Inventory Management, Product Pricing Management, Promotion Management, Labelling etc. ',
+          technology: 'AngularJS, AngularJS UI (Grid), jQuery, Bootstrap CSS, WSDL, json',
           views: 34,
           likes: 10
       },
@@ -28,8 +29,9 @@
           url: 'http://vsbackoffice.azurewebsites.net/backofficeservice.asmx',
           thumbnail: 'images/projects/previews/webservice.png',
           image: 'images/projects/details/webservice.png',
-          description: 'blah...blah...blah.... the service',
-          technology: 'a,b,c',
+          description: 'The BackOffice service is the web service that feeds the clients with the business management.' +
+          'The service is responsible for interacting with the Data Layer and stands out as an example for Business Logic Layer',
+          technology: 'WSDL, Json, XML',
           views: 48,
           likes: 34
       },
@@ -39,10 +41,11 @@
           url: 'http://tastyfoods.azurewebsites.net',
           thumbnail: 'images/projects/previews/tastyfoods.png',
           image: 'images/projects/details/tastyfoods.png',
-          description: 'blah...blah...blah.... Tasty foods',
-          technology: 'a,b,c',
+          description: 'Tasty foods is a real life website implemented (of course with a different name and is intended to portrait a type of Cuisine in great detail.'+
+          'The best part of this is the SEO techniques to make the website stand out as top results during a web search',
+          technology: 'ASP.NET MVC 4, jQuery, json',
           views: 22,
-          likes: 04
+          likes: 14
       },
       {
           id: 5,
@@ -50,21 +53,21 @@
           url: 'http://myprofile.azurewebsites.net/ComingSoon.html?siteName=TimeSheet_App',
           thumbnail: 'images/projects/previews/timesheet.png',
           image: 'images/projects/details/timesheet.png',
-          description: 'blah...blah...blah.... Time sheet app',
-          technology: 'a,b,c',
-          views: 112,
-          likes: 94
+          description: 'Time sheet app - Under construction',
+          technology: 'Web API, ASP.NET MVC client, Win 8.1 Store Apps Client',
+          views: 0,
+          likes: 0
       },
       {
           id: 6,
-          name: 'Waiting Scripts',
-          url: 'http://myprofile.azurewebsites.net/ComingSoon.html?siteName=Waiting_Scripts',
+          name: 'Chat Away...',
+          url: 'http://laughatme.azurewebsites.net',
           thumbnail: 'images/projects/previews/waitingscripts.png',
           image: 'images/projects/details/waitingscripts.png',
-          description: 'blah...blah...blah.... waiting scripts',
-          technology: 'a,b,c',
-          views: 112,
-          likes: 94
+          description: 'Chat Away is a SignalR based web application used as a chat client. This is still in progress....',
+          technology: 'ASP.NET, SignalR technique, jQuery',
+          views: 18,
+          likes: 15
       }
     ];
     $rootScope.views = $scope.views;
