@@ -1,0 +1,82 @@
+﻿[
+    {
+        "Id": 1,
+        "Code": "0001",
+        "Name": "Cadburys Dairy Milk 100gm",
+        "Price": 2.00,
+        "OnHand": 100,
+        "Category": "Chocolates"
+    },
+    {
+        "Id": 2,
+         "Code": "0002",   
+        "Name": "Mars Bar Twin Pack 150gm",
+        "Price": 2.50,
+        "OnHand": 100,
+        "Category": "Chocolates"
+    },
+    {
+        "Id": 3,
+        "Code": "0003",
+        "Name": "Arnotts Milk Biscuits",
+        "Price": 2.50,
+        "OnHand": 50,
+        "Category": "Biscuits"
+    },
+    {
+        "Id": 4,
+        "Code": "0004",
+        "Name": "Arnotts Marie Biscuits",
+        "Price": 2.99,
+        "OnHand": 52,
+        "Category": "Biscuits"
+    },
+    {
+        "Id": 5,
+        "Code": "0005",
+        "Name": "Nescafe Blend43",
+        "Price": 24.50,
+        "OnHand": 50,
+        "Category": "Coffee & Tea"
+    },
+    {
+        "Id": 6,
+        "Code": "0006",
+        "Name": "Dilmah Green Tea",
+        "Price": 4.99,
+        "OnHand": 50,
+        "Category": "Coffee & Tea"
+    },
+     {
+        "Id": 7,
+        "Code": "0007",
+        "Name": "Devondale Milk 3L",
+        "Price": 3.99,
+        "OnHand": 50,
+        "Category": "Dairy Products"
+    },
+    {
+        "Id": 8,
+        "Code": "0008",
+        "Name": "Lou Bega Cheddar Cheese",
+        "Price": 5.99,
+        "OnHand": 52,
+        "Category": "Dairy Products"
+    },
+    {
+        "Id": 9,
+        "Code": "0009",
+        "Name": "Cottage Split White Sandwich",
+        "Price": 4.50,
+        "OnHand": 15,
+        "Category": "Bread & Cereals"
+    },
+    {
+        "Id": 10,
+        "Code": "0010",
+        "Name": "Wheetbix 1.2kgs",
+        "Price": 6.99,
+        "OnHand": 50,
+        "Category": "Bread & Cereals"
+    }
+]

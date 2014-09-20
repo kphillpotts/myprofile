@@ -11,8 +11,31 @@
    
 
     <link href="stylesheets/application.css" rel="stylesheet" />
+    <script src="https://checkout.stripe.com/checkout.js"></script>
     <script src="javascripts/application.js"></script>
+   
+    
+    <script>
+          $('#HireMeButton').addEventListener('click', function (e) {
+        // Open Checkout with further options
+        //handler.open({
+        //    name: 'Hire Me',
+        //    description: '1 Yr Contract ($2000000.00)',
+        //    amount: 20000000
+        //});
+        //e.preventDefault();
+              alert('yay');
+          });
 
+    var handler = StripeCheckout.configure({
+        key: 'pk_test_4SXwvbjXGGzUk45DDyd7zE2R',
+        image: '/images/avatar.png',
+        token: function (token) {
+            // Use the token to create the charge with a server-side script.
+            // You can access the token ID with `token.id`
+        }
+    });
+    </script>
 
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
 
@@ -26,15 +49,17 @@
         <div class="span12">
 
             <div class="top">
-                <div class="caption">Change the background:</div>
+                <!--<div class="caption">Change the background:</div>-->
                 <div class="buttons">
                     <div class="btn-group" data-toggle="buttons-radio">
-                        <button id="cardboard" type="button" class="btn btn-mini active">1</button>
-                        <button id="green_dust_scratch" type="button" class="btn btn-mini">2</button>
-                        <button id="grid" type="button" class="btn btn-mini">3</button>
-                        <button id="retina_wood" type="button" class="btn btn-mini">4</button>
-                        <button id="solid" type="button" class="btn btn-mini">5</button>
+                        <!--<button id="cardboard" type="button" class="btn btn-mini active">1</button>
+                            <button id="green_dust_scratch" type="button" class="btn btn-mini">2</button>
+                            <button id="grid" type="button" class="btn btn-mini">3</button>
+                            <button id="retina_wood" type="button" class="btn btn-mini">4</button>
+                            <button id="solid" type="button" class="btn btn-mini">5</button>-->
+                        <button id="HireMeButton">Hire Me!</button>
                     </div>
+                   
                 </div>
             </div>
         </div>
@@ -67,7 +92,7 @@
                                 <a href="https://github.com/whitewolf33/myprofile"><i class="icon-github"></i> fork me!</a>
                             </div>
                             <div class="website">
-                                <a href="https://twitter.com/vincentdawolf"><i class="icon-twitter"></i> follow me</a>
+                                <a href="https://twitter.com/vsrinivasan33"><i class="icon-twitter"></i> follow me</a>
                             </div>                            
                         </div>
                     </div>

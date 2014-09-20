@@ -1,0 +1,37 @@
+﻿<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" ng-show="title">
+                <button type="button" class="close" ng-click="$hide()">&times;</button>
+                <h4 class="modal-title" ng-bind-html="title"></h4>
+            </div>
+            <div class="modal-body panel-primary">
+
+                <div class="panel-heading text-center">Tax Invoice</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Reference ID</label>
+                            <label class="col-sm-2 col-sm-offset-8 control-label">{{NewTransaction.Id}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Date</label>
+                            <label class="col-sm-2 col-sm-offset-8 control-label">{{NewTransaction.TransactionDate}}</label>
+                        </div>                       
+                        <div class="form-group">
+                            <hr class="col-sm-2 col-sm-offset-10" />
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Total</label>
+                            <label class="col-sm-2 col-sm-offset-8 control-label">{{NewTransaction.TotalAmount}}</label>
+                        </div>                      
+                    </form>
+                </div>                
+             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-lg" ng-click="$hide()"><span class="glyphicon glyphicon-print"> Receipt</span></button>
+                <button type="button" class="btn btn-primary btn-lg" ng-click="$hide()"><span class="glyphicon glyphicon-usd">ooper!!!</span></button>
+            </div>
+        </div>
+    </div>
+</div>

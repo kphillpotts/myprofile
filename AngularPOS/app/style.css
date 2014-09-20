@@ -1,0 +1,282 @@
+﻿/*#region My CSS */
+
+body {
+    height: 100%;
+    font-size: 16px;
+    line-Height: 2.2;
+}
+
+.height40 {
+    height: 40%;
+}
+
+.height100 {
+    height: 100px;
+}
+
+.height60 {
+    height: 60%;
+}
+
+.height80 {
+    height: 80%;
+}
+
+.height30 {
+    height: 30%;
+}
+
+.height100 {
+    height: 100%;
+}
+
+.ngViewport {
+    height: 100% !important;
+}
+
+.overflowAuto {
+    overflow: auto
+}
+.overflowNone {
+    overflow: hidden;
+}
+
+.overflowAutoY {
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+        
+}
+
+.overflowAutoX {
+    overflow-x: auto
+}
+.borderless tr{
+    border: none;
+}
+
+/*#endregion */
+
+.padding0 {
+    padding: 0px;
+}
+
+.padding-left0 {
+    padding-left: 0px;
+}
+
+.padding-right0 {
+    padding-right: 0px;
+}
+
+.padding-top0 {
+    padding-top: 0px;
+}
+
+.padding-bottom0 {
+    padding-bottom: 0px;
+}
+
+.padding5 {
+    padding: 5px;
+}
+
+.padding-left5 {
+    padding-left: 5px;
+}
+
+.padding-right5 {
+    padding-right: 5px;
+}
+
+.padding-top5 {
+    padding-top: 5px;
+}
+
+.padding-bottom5 {
+    padding-bottom: 5px;
+}
+
+.padding-top20 {
+    padding-top: 20px;
+}
+
+.padding-top25 {
+    padding-top: 25px;
+}
+
+.padding40 {
+    padding: 40px;
+}
+
+.padding-left40 {
+    padding-left: 40px;
+}
+
+.padding-right40 {
+    padding-right: 40px;
+}
+
+.padding-top40 {
+    padding-top: 5px;
+}
+
+.padding-bottom40 {
+    padding-bottom: 5px;
+}
+
+.margin0 {
+    margin: 0px;
+}
+
+.margin1 {
+    margin: 1px;
+}
+
+.margin5 {
+    margin: 5px;
+}
+
+.margin-left5 {
+    margin-left: 5px;
+}
+
+.margin-right5 {
+    margin-right: 5px;
+}
+
+.margin-top5 {
+    margin-top: 5px;
+}
+
+.margin-bottom5 {
+    margin-bottom: 5px;
+}
+
+.margin10 {
+    margin: 10px;
+}
+
+.margin-left10 {
+    margin-left: 10px;
+}
+
+.margin-right10 {
+    margin-right: 10px;
+}
+
+.margin-top10 {
+    margin-top: 10px;
+}
+
+.margin-bottom10 {
+    margin-bottom: 10px;
+}
+
+.margin15 {
+    margin: 15px;
+}
+
+.margin-left15 {
+    margin-left: 15px;
+}
+
+.margin-right15 {
+    margin-right: 15px;
+}
+
+.margin-top15 {
+    margin-top: 15px;
+}
+
+.margin-bottom15 {
+    margin-bottom: 15px;
+}
+
+.margin20 {
+    margin: 20px;
+}
+
+.margin25 {
+    margin: 25px;
+}
+
+.margin-left25 {
+    margin-left: 25px;
+}
+
+.margin-right25 {
+    margin-right: 25px;
+}
+
+.margin-top25 {
+    margin-top: 25px;
+}
+
+.margin-bottom25 {
+    margin-bottom: 25px;
+}
+/*#region Modal */
+
+.modal-backdrop.am-fade {
+    opacity: .5;
+    transition: opacity .15s linear;
+}
+
+/*#endregion */
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    height: auto;
+}
+
+.ngViewport {
+    height: auto !important;
+    min-height: 200px !important;
+}
+ .ngHeaderContainer {
+        font-weight: normal !important;       
+         text-align: center;
+    }
+ 
+  .ngCellText{
+         font-size: 16px !important;
+         line-Height: 2.2 !important;
+    }
+@media (min-width:768px) {
+    body {
+        font-size: 16px;
+        line-Height: 2.2;
+    }
+
+    .ngHeaderContainer {
+        font-weight: normal !important;        
+        line-Height: 2.2;
+         text-align: center;
+    }
+
+    .bigFont {
+        font-size: 32px !important;
+    }
+     .mediumFont {
+        font-size: 21px !important; 
+    }
+  .smallFont {
+       font-size: 18px !important;
+  }
+  .boldFont{
+      font-weight:bold;
+  }
+  
+    .ngCellText{
+         font-size: 16px !important;
+         line-Height: 2.2;
+         text-align: center;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-12 {
+        padding-right: 40px !important;
+    }
+}

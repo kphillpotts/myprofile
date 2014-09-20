@@ -11,9 +11,9 @@ namespace TastyFoods
 {
     public static class SEO
     {
-        //public static string RootDomain = "http://www.TastyFoods.com.au";
+        public static string RootDomain = "http://www.tastyfoods.com.au";
              
-        public static string RootDomain = "http://localhost/tastyfoods";
+        //public static string RootDomain = "http://localhost/tastyfoods";
 
         #region - Definition -
 

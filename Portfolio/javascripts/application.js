@@ -22781,27 +22781,16 @@ $.extend($.ui.tabs.prototype, {
 
 }(window.jQuery);
 
+//(function() {
 
+//  $(function() {
+//    return $('.tip').tooltip({
+//      placement: "top"
+//    });
+//  });
 
+//}).call(this);
 
-
-
-
-
-
-
-
-
-
-(function() {
-
-  $(function() {
-    return $('.tip').tooltip({
-      placement: "top"
-    });
-  });
-
-}).call(this);
 $(document).ready(function() {
     $("#cardboard").click(function(){
         $("#body").removeClass();
@@ -22823,6 +22812,7 @@ $(document).ready(function() {
         $("#body").removeClass();
         $("#body").addClass("solid");
     });
+  
 });
 
 
