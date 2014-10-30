@@ -49,14 +49,14 @@
       },
       {
           id: 5,
-          name: 'Time Sheet App',
-          url: 'http://myprofile.azurewebsites.net/ComingSoon.html?siteName=TimeSheet_App',
+          name: 'Point O Sale',
+          url: 'http://vspos.azurewebsites.net/main.html',
           thumbnail: 'images/projects/previews/timesheet.png',
           image: 'images/projects/details/timesheet.png',
-          description: 'Time sheet app - Under construction',
-          technology: 'Web API, ASP.NET MVC client, Win 8.1 Store Apps Client',
-          views: 0,
-          likes: 0
+          description: 'Point of Sale - Angular JS',
+          technology: 'Service Stack (REST), AngularJS, jQuery, Bootstrap CSS',
+          views: 10,
+          likes: 8
       },
       {
           id: 6,
@@ -65,7 +65,7 @@
           thumbnail: 'images/projects/previews/waitingscripts.png',
           image: 'images/projects/details/waitingscripts.png',
           description: 'Chat Away is a SignalR based web application used as a chat client. This is still in progress....',
-          technology: 'ASP.NET, SignalR technique, jQuery',
+          technology: 'ASP.NET, SignalR, jQuery',
           views: 18,
           likes: 15
       }

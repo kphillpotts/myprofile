@@ -9,23 +9,25 @@
 
                 <div class="panel-heading text-center">Tax Invoice</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form">
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Reference ID</label>
-                            <label class="col-sm-2 col-sm-offset-8 control-label">{{NewTransaction.Id}}</label>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Date</label>
-                            <label class="col-sm-2 col-sm-offset-8 control-label">{{NewTransaction.TransactionDate}}</label>
-                        </div>                       
-                        <div class="form-group">
-                            <hr class="col-sm-2 col-sm-offset-10" />
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Total</label>
-                            <label class="col-sm-2 col-sm-offset-8 control-label">{{NewTransaction.TotalAmount}}</label>
-                        </div>                      
-                    </form>
+                    <table class="table borderless">
+                        <tbody>
+                            <tr>
+                                <td>Reference ID</td>
+                                <td><label id="salesAmount" class="form-control smallFont input-lg"><span class="pull-right">{{NewTransaction.Id}}</span></label></td>
+                            <tr>
+                                <td>Date</td>
+                                <td><label id="salesTax" class="form-control smallFont input-lg"><span class="pull-right">{{NewTransaction.TransactionDate}}</span></label></td>
+                            </tr>
+                            <tr>
+                                <td>Total</td>
+                                <td><label id="salesTotal" class="form-control smallFont input-lg"><span class="pull-right">{{NewTransaction.TotalAmount}}</span></label></td>
+                            </tr>
+                            <tr>
+                                <td>Balance</td>
+                                <td><label id="salesBalance" class="form-control smallFont input-lg"><span class="pull-right">{{salesBalance()}}</span></label></td>
+                            </tr>
+                        </tbody>
+                    </table>                   
                 </div>                
              </div>
             <div class="modal-footer">

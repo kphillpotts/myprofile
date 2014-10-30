@@ -1,0 +1,31 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Phoneword_Droid\CallHistoryActivity.cs">
+    <Files>
+      <File FileName="Phoneword_Droid\MainActivity.cs" Line="59" Column="6" />
+      <File FileName="Phoneword_Droid\PhoneTranslator.cs" Line="1" Column="1" />
+      <File FileName="Phoneword_Droid\Properties\AndroidManifest.xml" Line="1" Column="1" />
+      <File FileName="Phoneword_Droid\Resources\values\Strings.xml" Line="6" Column="13" />
+      <File FileName="Phoneword_Droid\CallHistoryActivity.cs" Line="21" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Phoneword_Droid" expanded="True">
+            <Node name="Properties" expanded="True" />
+            <Node name="Resources" expanded="True">
+              <Node name="layout" expanded="True" />
+              <Node name="values" expanded="True" />
+            </Node>
+            <Node name="CallHistoryActivity.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Phoneword__Droid MonoForAntroid.PreferredDevice="3.7&quot; WVGA (Nexus One)" AndroidDeviceId-Debug="192.168.56.101:5555" />
+</Properties>

@@ -101,6 +101,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\VSBackOffice %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\VSBackOffice.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

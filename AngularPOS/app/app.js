@@ -1,7 +1,7 @@
 ﻿var app = angular.module('angularPOS', ['mgcrea.ngStrap.modal', 'mgcrea.ngStrap.aside', 'ngGrid']);
 var url = "http://vsstackpos.azurewebsites.net/api/";
 //var url = "http://localhost:50991/api/"
-var posController = app.controller('posController', function ($scope, $sce, $aside, $modal, transactionService, productService) {
+var posController = app.controller('posController', function ($scope, $sce, $aside, $modal, $timeout, transactionService, productService) {
 
     $scope.products = [];
     $scope.categories = [];
@@ -10,6 +10,40 @@ var posController = app.controller('posController', function ($scope, $sce, $asi
     $scope.showCategoryPane = false;
     $scope.showProductPane = false;
     $scope.codeOrQty = '';
+
+    $scope.clock = "loading...";
+    $scope.tickInterval = 1000 //ms
+
+    var tick = function () {
+        $scope.clock = Date.now() // get the current time
+        $timeout(tick, $scope.tickInterval); // reset the timer
+    }
+
+    // Start the timer
+    $timeout(tick, $scope.tickInterval);
+
+    // Card Payment
+
+    $('#payByCard').on('click', function (e) {
+        // Open Checkout with further options
+        handler.open({
+            name: "Confirm Card Payment",
+            description: 'Card Payment for POS transaction',
+            amount: $scope.salesTotal()*100
+        });
+        e.preventDefault();
+        //alert('yay');
+    });
+
+    var handler = StripeCheckout.configure({
+        key: 'pk_test_4SXwvbjXGGzUk45DDyd7zE2R',
+        image: '/images/pos_logo.png',
+        token: function (token) {
+            // Use the token to create the charge with a server-side script.
+            // You can access the token ID with `token.id`
+            $scope.showModal();
+        }
+    });
 
     $scope.salesAmount = (0.00).toFixed(2);
     $scope.salesTax = function () {
@@ -87,11 +121,19 @@ var posController = app.controller('posController', function ($scope, $sce, $asi
     }
 
     $scope.showCategoryLookup = function () {
-        $scope.showCategoryPane = !$scope.showCategoryPane;
-        if ($scope.showCategoryPane || $scope.showProductPane)
+        var categoryPaneVisible = $scope.showCategoryPane;
+
+        if (!categoryPaneVisible && !$scope.showProductPane) {
+            // Toggle ON - Category now shown
+            $scope.showCategoryPane = true;
             $("#lookupBtn").html('<span class="glyphicon glyphicon-list"> Back To POS</span>');
-        else
+        }
+        else {
+            // Category is already loaded and either cat pane or prod pane is displayed. Hide all panes
             $("#lookupBtn").html('<span class="glyphicon glyphicon-search"> Lookup Product</span>');
+            $scope.showProductPane = false;
+            $scope.showCategoryPane = false;
+        }
     };
     $scope.payCash = function () {
         $scope.showModal();
@@ -99,15 +141,18 @@ var posController = app.controller('posController', function ($scope, $sce, $asi
 
     $scope.listFilteredProducts = function (cat) {
         $scope.selectedCategory = cat;
-        $.each($scope.products, function (product) {
-            $scope.filteredProductsBySelectedCtg.push(product);
-        });
+        $scope.filteredProductsBySelectedCtg = [];
+        $.each($scope.products, function (key, product) {
+            if (product.category === cat)
+                $scope.filteredProductsBySelectedCtg.push(product);                            
+            });
         $scope.showProductPane = true;
         $scope.showCategoryPane = false;
     };
 
     $scope.selectProduct = function (product) {
         addOrUpdateRow(product);
+        $("#lookupBtn").html('<span class="glyphicon glyphicon-search"> Lookup Product</span>');
         $scope.showProductPane = false;
     };
 
@@ -160,6 +205,7 @@ var posController = app.controller('posController', function ($scope, $sce, $asi
     });
 
     productService.getProducts(populateProducts);
+
     function populateProducts(data) {
         $.each(data, function (key, value) {
             console.log('key: ' + key + ' value:' + value);
@@ -295,4 +341,10 @@ app.service("productService", function ($http, $q) {
     function handleSuccess(response) {
         return (response.data);
     }
+});
+
+$(function () {
+    var height = $(window).height();
+    console.log('Window height is '+ height);
+    $('#heroImage').css("min-height", height);  
 });

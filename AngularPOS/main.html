@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="angularPOS">
+<head>
+    <title></title>
+    <script src="Scripts/jquery-2.1.1.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-animate.min.js"></script>
+    <script src="Scripts/angular-strap.min.js"></script>
+    <script src="Scripts/ng-grid.min.js"></script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script src="app/app.js"></script>
+    <link rel="stylesheet" href="//rawgithub.com/mgcrea/bootstrap-additions/master/dist/bootstrap-additions.min.css" />    
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="app/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Content/ng-grid.min.css" />
+    <link href="Content/ng-grid.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+    <body >
+        <div id="heroImage" class="img-responsive">
+            <div class="height100">
+            </div>
+        </div>
+        <div id="posController" data-ng-controller="posController" class="margin-left15 margin-right15" ng-show="true">
+            <!--First Row Header-->
+            <div class="col-md-12 hidden-xs margin-left15 margin-right15">
+                <span style="position: absolute;right: 0.5%;top: 0px; font-size:0.9em;text-align:left; width: 180px">Welcome, <span style="color:#428bca;">Vinod</span></span>
+                <span style="position: absolute;right: 0.5%;top: 20px; font-size:0.9em; font-weight:lighter; text-align:left; width: 180px">{{ clock  | date:'medium'}}</span>
+                <div class="jumbotron text-center panel-heading panel-info margin-top10 margin-bottom10 padding5  img-rounded">
+                    <h1>
+                        <img src="images/pos100x100.png" alt="..." class="img-rounded margin0">Point <span style="color:#428bca;font-family:Lucida Handwriting">'O'</span> Sale
+                    </h1>
+                    <span style="position: absolute;left: 52%;top: 90px; font-size:0.9em; font-weight:lighter; font-family:Lucida Handwriting;color:#428bca">Retail made easy...</span>
+                </div>
+            </div>
+            <!-- Second Row Grid and Left Panel-->
+            <div class="container-fluid margin0">
+                <div class="col-md-12 margin-left15 margin-right15">
+                    <div class="col-md-4 panel-default padding0  padding-right5 visible-lg">
+                        <div class="list-group margin-bottom10 overflowAutoY">
+                            <a href="#" class="list-group-item active"><i class="padding-right40 mediumFont glyphicon glyphicon-home"></i>POS Home</a>
+                            <a href="#" class="list-group-item"><i class="padding-right40 mediumFont glyphicon glyphicon-tags"></i>Products</a>
+                            <a href="#" class="list-group-item"><i class="padding-right40 mediumFont glyphicon glyphicon-user"></i>Customers</a>
+                            <a href="#" class="list-group-item"><i class="padding-right40 mediumFont glyphicon glyphicon-remove"></i>Cancel Sale</a>
+                            <a href="#" class="list-group-item"><i class="padding-right40 mediumFont glyphicon glyphicon-list-alt"></i>Todays Sales<span class="badge pull-right smallFont">42</span></a>
+                            <a href="#" class="list-group-item"><i class="padding-right40 mediumFont glyphicon glyphicon-eye-open"></i>View Reports<span class="badge pull-right smallFont">4</span></a>
+                            <a href="#" class="list-group-item"><i class="padding-right40 mediumFont glyphicon glyphicon-cog"></i>POS Setup</a>
+                            <a href="#" class="list-group-item"><i class="padding-right40 mediumFont glyphicon glyphicon-off"></i>Lock POS</a>
+                        </div>
+                    </div>
+                    <div class="col-md-8 padding0">
+                        <!-- Selected Products Grid-->
+                        <div class="padding0 margin1 overflowAutoY" ng-grid="gridSelectedProducts" ng-show="(!showCategoryPane && !showProductPane)"></div>
+                        <!-- Lookup Category-->
+                        <div class="padding0 row-fluid" ng-show="showCategoryPane">
+                            <div class="col-sm-2  padding5 animation" ng-repeat="category in categories">
+                                <button ng-click="listFilteredProducts(category)" class="btn btn-default btn-lg padding5">
+                                    <span>{{category}}</span>
+                                    <img src="images/Category/{{category}}_150x150.png" onerror="this.onerror=null;this.src='images/img_150x150.gif';" class="img-responsive img-rounded margin0" />
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Looup Products-->
+                        <div class="padding0 panel panel-primary" ng-show="showProductPane" title="{{filteredCategory}}">
+
+                            <div class="col-sm-2 row-fluid padding5 " ng-repeat="product in filteredProductsBySelectedCtg">
+                                <button type="button" ng-click="selectProduct(product)" class="btn btn-default btn-lg padding5 tinyFont">
+                                    <span>{{product.name}}</span>
+                                    <img id="productImage" src="images/Products/{{product.name}}_150x150.png" onerror="this.onerror=null;this.src='images/img_150x150.gif';" class="img-responsive img-rounded margin0" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Third Row Big Buttons -->
+            <div class="col-md-12 margin-left15 margin-right15">
+                <div class="row-fluid">
+                    <div class="col-sm-3  padding0">
+                        <button type="button" class="btn btn-default btn-lg btn-block well-lg bigFont" ng-click="payCash();"><span class=" glyphicon glyphicon-usd"> Pay cash</span> </button>
+                    </div>
+                    <div class="col-sm-3 margin0 padding0">
+                        <button type="button" class="btn btn-default btn-lg btn-block well-lg bigFont"><span class="glyphicon glyphicon-gift"> Pay giftcard</span> </button>
+                    </div>
+                    <div class="col-sm-3 margin0 padding0">
+                        <button type="button" id="payByCard" class="btn btn-default btn-lg btn-block well-lg bigFont"><span class="glyphicon glyphicon-credit-card"> Pay card</span> </button>
+                    </div>
+                    <div class="col-sm-3  padding0">
+                        <button type="button" id="lookupBtn" class="btn btn-default btn-lg btn-block well-lg bigFont" ng-click="showCategoryLookup();"><span class="glyphicon glyphicon-search"> Lookup product</span> </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Last Row-->
+            <div class="col-md-12 margin-left15 margin-right15">
+                <!-- Button Image functions-->
+                <div class="col-md-6 panel-default padding5 hidden-xs">
+                    <img src="images/img_120x120.png" alt="..." class="img-rounded margin1">
+                    <img src="images/img_120x120.png" alt="..." class="img-rounded margin1">
+                    <img src="images/img_120x120.png" alt="..." class="img-rounded margin1">
+                    <img src="images/img_120x120.png" alt="..." class="img-rounded margin1">
+                    <img src="images/img_120x120.png" alt="..." class="img-rounded margin1">
+                    <img src="images/img_120x120.png" alt="..." class="img-rounded margin1">
+                    <img src="images/img_120x120.png" alt="..." class="img-rounded margin1">
+                    <img src="images/img_120x120.png" alt="..." class="img-rounded margin1">
+                    <img src="images/img_120x120.png" alt="..." class="img-rounded margin1">
+                    <img src="images/img_120x120.png" alt="..." class="img-rounded margin1">
+
+                </div>
+                <!-- End Button Image Functions-->
+                <!--Calculator-->
+                <div class="col-md-3 panel-default padding5 hidden-xs">
+                    <div class="col-md-12 padding0">
+
+                        <div class="margin0 smallFont">
+                            <div class="row-fluid ">
+                                <input type="text" ng-model="codeOrQty" class="form-control input-lg" placeholder="Search or Enter Quantity">
+                            </div>
+                        </div>
+                        <div class=" row-fluid margin1">
+                            <button type="button" class="btn btn-default btn-lg well col-sm-3 margin0 mediumFont boldFont" ng-click="onClick(7)">7</button>
+                            <button type="button" class="btn btn-default btn-lg well col-sm-3 margin0 mediumFont boldFont" ng-click="onClick(8)">8</button>
+                            <button type="button" class="btn btn-default btn-lg well col-sm-3 margin0 mediumFont boldFont" ng-click="onClick(9)">9</button>
+                            <button type="button" class="btn btn-default btn-lg well col-sm-3 margin0 mediumFont boldFont" ng-click="onClick('bs')"><i class="glyphicon glyphicon-arrow-left icon-white"></i></button>
+                        </div>
+                        <div class="row-fluid margin1">
+                            <button type="button" class="btn btn-default btn-lg well col-sm-3 margin0 mediumFont boldFont" ng-click="onClick(4)">4</button>
+                            <button type="button" class="btn btn-default btn-lg well col-sm-3 margin0 mediumFont boldFont" ng-click="onClick(5)">5</button>
+                            <button type="button" class="btn btn-default btn-lg well col-sm-3 margin0 mediumFont boldFont" ng-click="onClick(6)">6</button>
+                            <button type="button" class="btn btn-default btn-lg well col-sm-3 margin0 mediumFont boldFont" ng-click="onClick('c')"><i class="glyphicon glyphicon-repeat icon-white"></i></button>
+                        </div>
+                        <div class="row-fluid margin1">
+                            <button type="button" class="btn btn-default btn-lg well col-sm-3 margin0 mediumFont boldFont" ng-click="onClick(1)">1</button>
+                            <button type="button" class="btn btn-default btn-lg well col-sm-3 margin0 mediumFont boldFont" ng-click="onClick(2)">2</button>
+                            <button type="button" class="btn btn-default btn-lg well col-sm-3 margin0 mediumFont boldFont" ng-click="onClick(3)">3</button>
+                            <button type="button" class="btn btn-default btn-lg well col-sm-3 margin0 mediumFont boldFont" ng-click="onClick('ok')"><i class="glyphicon glyphicon-ok-sign icon-white"></i></button>
+                        </div>
+                        <div class="row-fluid margin1">
+                            <button type="button" class="btn btn-default btn-lg well col-sm-3 margin0 mediumFont boldFont" ng-click="onClick('*')">*</button>
+                            <button type="button" class="btn btn-default btn-lg well col-sm-3 margin0 mediumFont boldFont" ng-click="onClick(0)">0</button>
+                            <button type="button" class="btn btn-default btn-lg well col-sm-3 margin0 mediumFont boldFont" ng-click="onClick('.')">.</button>
+                            <button type="button" class="btn btn-default btn-lg well col-sm-3 margin0 mediumFont boldFont"><i class="glyphicon glyphicon-flash icon-white"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Calculator-->
+                <!-- Total Panel-->
+                <div class="col-md-3 panel-default padding0">
+                    <div class="table-responsive margin-top25 margin-bottom5 overflowNone">
+                        <table class="table borderless">
+                            <tbody>
+                                <tr>
+                                    <td>Amount</td>
+                                    <td><label id="salesAmount" class="form-control smallFont input-lg"><span class="pull-right">{{salesAmount}}</span></label></td>
+                                <tr>
+                                    <td>Tax</td>
+                                    <td><label id="salesTax" class="form-control smallFont input-lg"><span class="pull-right">{{salesTax()}}</span></label></td>
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td><label id="salesTotal" class="form-control smallFont input-lg"><span class="pull-right">{{salesTotal()}}</span></label></td>
+                                </tr>
+                                <tr>
+                                    <td>Balance</td>
+                                    <td><label id="salesBalance" class="form-control smallFont input-lg"><span class="pull-right">{{salesBalance()}}</span></label></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- End Total Panel-->
+            </div>
+        </div>
+</body>
+</html>

@@ -13,30 +13,6 @@
     <link href="stylesheets/application.css" rel="stylesheet" />
     <script src="https://checkout.stripe.com/checkout.js"></script>
     <script src="javascripts/application.js"></script>
-   
-    
-    <script>
-          $('#HireMeButton').addEventListener('click', function (e) {
-        // Open Checkout with further options
-        //handler.open({
-        //    name: 'Hire Me',
-        //    description: '1 Yr Contract ($2000000.00)',
-        //    amount: 20000000
-        //});
-        //e.preventDefault();
-              alert('yay');
-          });
-
-    var handler = StripeCheckout.configure({
-        key: 'pk_test_4SXwvbjXGGzUk45DDyd7zE2R',
-        image: '/images/avatar.png',
-        token: function (token) {
-            // Use the token to create the charge with a server-side script.
-            // You can access the token ID with `token.id`
-        }
-    });
-    </script>
-
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
 
     <!--[if lt IE 9]>
@@ -58,6 +34,29 @@
                             <button id="retina_wood" type="button" class="btn btn-mini">4</button>
                             <button id="solid" type="button" class="btn btn-mini">5</button>-->
                         <button id="HireMeButton">Hire Me!</button>
+
+                        <script>
+    $('#HireMeButton').on('click', function (e) {
+        // Open Checkout with further options
+        handler.open({
+            name: 'Hire Me',
+            description: '1 Yr Contract ($200,000.00)',
+            amount: 20000000
+        });
+        e.preventDefault();
+        //alert('yay');
+    });
+
+    var handler = StripeCheckout.configure({
+        key: 'pk_test_4SXwvbjXGGzUk45DDyd7zE2R',
+        image: '/images/avatar.png',
+        token: function (token) {
+            // Use the token to create the charge with a server-side script.
+            // You can access the token ID with `token.id`
+        }
+    });
+                        </script>
+
                     </div>
                    
                 </div>
