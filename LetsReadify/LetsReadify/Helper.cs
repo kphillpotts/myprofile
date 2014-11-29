@@ -6,9 +6,9 @@ using System.Web;
 
 namespace LetsReadify
 {
-    public class Helper
+    public static class Helper
     {
-        public TriangleType GetTriangleType(int a, int b, int c)
+        public static TriangleType GetTriangleType(int a, int b, int c)
         {
             //Trace.WriteLine(string.Format("{0} GetTriangleType a ={1} b={2} c={3}", DateTime.Now.ToString("G"), a, b, c));
 
@@ -30,7 +30,7 @@ namespace LetsReadify
             return TriangleType.Error;
         }
 
-        public Int64 GetFibonacci(Int64 n)
+        public static Int64 GetFibonacci(Int64 n)
         {
             //Trace.WriteLine(string.Format("{0} GetFibonacci n={1}", DateTime.Now.ToString("G"), n));           
             long a = 0;
@@ -57,7 +57,7 @@ namespace LetsReadify
             return ((n * -1) % 2 == 0) ? a * -1 : a;
         }
 
-        public string GetReverseWord(string s)
+        public static string GetReverseWord(string s)
         {
            // Trace.WriteLine(string.Format("{0} GetReverseWord s={1}", DateTime.Now.ToString("G"), s));            
             char[] charArray = s.ToCharArray();

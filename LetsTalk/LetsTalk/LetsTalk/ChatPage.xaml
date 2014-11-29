@@ -1,0 +1,32 @@
+﻿
+<ContentPage x:Class="LetsTalk.ChatPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Padding>
+        <OnPlatform iOS="0, 20, 0, 0" x:TypeArguments="Thickness" />
+    </ContentPage.Padding>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="AUTO" />
+            </Grid.ColumnDefinitions>
+
+            <Entry Grid.Column="0"
+                   BackgroundColor="White" 
+                   TextColor="Black" x:Name="entryTextBox"/>
+
+            <Button Grid.Column="1" BackgroundColor="Blue" Text="Send" Clicked="SendBtn_Clicked"/>
+        </Grid>
+
+        <ScrollView Grid.Row="1" BackgroundColor="Gray">
+            <Label Text="{Binding Content}" LineBreakMode="WordWrap" x:Name="chatHistoryLbl" />
+        </ScrollView>
+    </Grid>
+</ContentPage>
